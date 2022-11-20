@@ -7,7 +7,7 @@ export type APIErrorResponse = {
 
 export const unknownError: APIErrorResponse = {
   code: 500,
-  error: "Unknow Error",
+  error: "Unknown Error",
   message: "不明なエラー",
   detail: {},
 };
