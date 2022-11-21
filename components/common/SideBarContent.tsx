@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   CalendarCheck,
+  ChatsCircle,
   Gear,
   GraduationCap,
   SignOut,
@@ -65,6 +66,15 @@ export const SidebarContent = () => {
             icon={<Gear />}
             title="設定"
             isActive={router.pathname == "/settings"}
+          />
+        </a>
+      </Link>
+      <Link href="/contact">
+        <a>
+          <Item
+            icon={<ChatsCircle />}
+            title="お問合せ"
+            isActive={router.pathname == "/contact"}
           />
         </a>
       </Link>

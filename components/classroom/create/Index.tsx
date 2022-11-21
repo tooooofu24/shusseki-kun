@@ -22,7 +22,7 @@ import { ClassField } from "../../common/form/ClassField";
 import { useForm } from "react-hook-form";
 import { ClassroomCreateTable } from "./ClassroomCreateTable";
 import { FilePicker } from "./FilePicker";
-import { FileDescribeButton } from "./FileDiscribeButton";
+import { FileDescribeButton } from "./FileDescribeButton";
 import { useEffect } from "react";
 import { ConfirmModal } from "./ConfirmModal";
 
