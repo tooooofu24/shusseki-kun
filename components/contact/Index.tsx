@@ -19,16 +19,19 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useCurrentUser } from "../../hooks/CurrentUser";
 import { usePostSlackMessage } from "../../hooks/Slack";
+import { useCustomToast } from "../../hooks/Toast";
 import { PageTitle } from "../common/PageTitle";
 import { Tile } from "../common/Tile";
 
 export const ContactPage = () => {
   const { user, isLoading } = useCurrentUser();
   const { postSlackMessage } = usePostSlackMessage();
+  const { showToast } = useCustomToast();
   const {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<form>({
     mode: "onBlur",
@@ -40,10 +43,12 @@ export const ContactPage = () => {
     setValue("email", user?.email || "");
   }, [isLoading]);
 
-  const onSubmit = (data: form) => {
+  const onSubmit = async (data: form) => {
     const { name, email, text } = data;
     const message = `お問合せが届きました！\n\n氏名：${name}\nメールアドレス：${email}\n${"```"}${text}${"```"}`;
-    postSlackMessage("#notify-contact", message);
+    await postSlackMessage("#notify-contact", message);
+    reset();
+    showToast("お問合せを送信しました！", "success");
   };
   return (
     <>
