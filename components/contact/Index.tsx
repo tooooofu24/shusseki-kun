@@ -52,7 +52,6 @@ export const ContactPage = () => {
   };
   return (
     <>
-      <PageTitle title="お問合せ" icon={<ChatsCircle />} iconUrl="" />
       <Tile>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex flexDir="column" gap="1rem">
@@ -83,7 +82,7 @@ export const ContactPage = () => {
               <Textarea
                 {...register("text", { required: "必須項目です！" })}
                 placeholder="こちらにお問合せ内容をご入力ください。"
-                rows={8}
+                rows={5}
               />
               <FormErrorMessage>{errors.text?.message}</FormErrorMessage>
             </FormControl>
