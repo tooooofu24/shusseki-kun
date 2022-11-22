@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { EnvelopeSimple, Users } from "phosphor-react";
+import { ChatsCircle, EnvelopeSimple, Users } from "phosphor-react";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { AuthContent } from "../../components/common/AuthContent";
@@ -8,13 +8,12 @@ import { Layout } from "../../components/common/Layout";
 import { LoadingTile } from "../../components/common/loading/LoadingTile";
 import { PageTitle } from "../../components/common/PageTitle";
 import { ContactPage } from "../../components/contact/Index";
-import { UserList } from "../../components/users/Index";
-import { InviteButton } from "../../components/users/InviteButton";
 
 const UsersPage: NextPage = () => {
   return (
     <AuthContent>
       <Layout>
+        <PageTitle title="お問合せ" icon={<ChatsCircle />} iconUrl="" />
         <ErrorBoundary FallbackComponent={ErrorFallbackTile}>
           <Suspense fallback={<LoadingTile />}>
             <ContactPage />
