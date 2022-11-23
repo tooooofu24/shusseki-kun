@@ -64,7 +64,7 @@ export const IPList = () => {
                 </Td>
                 <Td>{IPAddress.label}</Td>
                 <Td>{IPAddress.ip}</Td>
-                <Td>{IPAddress.createdBy.name}</Td>
+                <Td>{IPAddress.createdBy?.name}</Td>
                 <Td>{formatDate(IPAddress.createdAt)}</Td>
                 <Td>
                   <DeleteIPButtton IPAddress={IPAddress} />

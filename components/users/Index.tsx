@@ -138,7 +138,7 @@ const InvitationRow: FC<InvitationRowProps> = ({ invitation }) => {
         />
       </Td>
       <Td>{invitation.email}</Td>
-      <Td>{invitation.createdBy.name}</Td>
+      <Td>{invitation.createdBy?.name}</Td>
       <Td>{formatDate(invitation?.createdAt)}</Td>
       <Td>
         <CancelInvitationButton invitation={invitation} />

@@ -5,5 +5,5 @@ export type IPAddress = {
   ip: string;
   label: string;
   createdAt: string;
-  createdBy: User;
+  createdBy?: User;
 };
