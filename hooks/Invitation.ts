@@ -40,3 +40,16 @@ export const useDeleteInvitation = () => {
   };
   return { isLoading, deleteInvitation };
 };
+
+export const useSendInvitationMail = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const sendInvitationMail = async (invitation: Invitation) => {
+    setIsLoading(true);
+    await postRequest("/invitations/" + invitation.id + "/resend", {}).finally(
+      () => {
+        setIsLoading(false);
+      }
+    );
+  };
+  return { isLoading, sendInvitationMail };
+};
