@@ -24,6 +24,7 @@ import { PageTitle } from "../common/PageTitle";
 import { Tile, TilesWrapper } from "../common/Tile";
 import { CancelInvitationButton } from "./CancelInvitationButton";
 import { DeleteUserButton } from "./DeleteUserButton";
+import { SendInvitationMailButton } from "./SendInvitationMailButton";
 
 export const UserList = () => {
   const { users, refetch: refetchUsers } = useUsers();
@@ -75,7 +76,7 @@ export const UserList = () => {
               <Table size={["sm", "md"]}>
                 <Thead>
                   <Tr>
-                    <Th>再通知</Th>
+                    <Th>再送信</Th>
                     <Th>メールアドレス</Th>
                     <Th>招待ユーザー</Th>
                     <Th>招待日時</Th>
@@ -130,12 +131,7 @@ const InvitationRow: FC<InvitationRowProps> = ({ invitation }) => {
   return (
     <Tr>
       <Td>
-        <IconButton
-          icon={<EnvelopeSimple />}
-          aria-label="メール送信"
-          rounded="full"
-          size={isSmartPhoneScreen() ? "xs" : "sm"}
-        />
+        <SendInvitationMailButton invitation={invitation} />
       </Td>
       <Td>{invitation.email}</Td>
       <Td>{invitation.createdBy?.name}</Td>
