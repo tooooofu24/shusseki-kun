@@ -26,7 +26,9 @@ import { format } from "date-fns";
 import ja from "date-fns/locale/ja";
 import { useRouter } from "next/router";
 import { Check, X } from "phosphor-react";
-import { FC, useState } from "react";
+import { FC, Suspense, useState } from "react";
+import { useClassroom } from "../../../hooks/Classroom";
+import { useCourse } from "../../../hooks/Course";
 import { useCreateCourseLog } from "../../../hooks/CourseLog";
 import { AttendanceForm } from "../../../utils/form/AttendanceForm";
 
@@ -101,7 +103,7 @@ export const ConfirmModal: FC<props> = ({ isOpen, onClose, data }) => {
             キャンセル
           </Button>
           <Button isLoading={isLoading} onClick={onClick}>
-            クラスを登録
+            出欠を登録
           </Button>
         </ModalFooter>
       </ModalContent>
@@ -127,7 +129,11 @@ const ConfirmTable: FC<ConfirmTableProps> = ({ data }) => {
           </Thead>
           <Tbody>
             <Tr>
-              <Td>{data.courseId}（実装中...）</Td>
+              <Td>
+                <Suspense fallback={<></>}>
+                  <ReturnClassRoomName id={data.courseId} />
+                </Suspense>
+              </Td>
               <Td>
                 {format(new Date(data.date), "yyyy年M月d日(E)", { locale: ja })}
               </Td>
@@ -194,4 +200,13 @@ const convert = (s?: number | string | null) => {
     return "C";
   }
   return "なし";
+};
+
+const ReturnClassRoomName = ({ id }: { id: number }) => {
+  const { course } = useCourse(id);
+  return (
+    <>
+      {course.classroom.grade}年{course.classroom.name}組
+    </>
+  );
 };
