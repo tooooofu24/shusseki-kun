@@ -190,13 +190,13 @@ const ConfirmTable: FC<ConfirmTableProps> = ({ data }) => {
 };
 
 const convert = (s?: number | string | null) => {
-  if (s == 1) {
+  if (s == 3) {
     return "A";
   }
   if (s == 2) {
     return "B";
   }
-  if (s == 3) {
+  if (s == 1) {
     return "C";
   }
   return "なし";
