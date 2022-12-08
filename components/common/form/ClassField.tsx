@@ -13,6 +13,8 @@ export const ClassField = ({ register, ...props }: props) => {
       <option value="4">4組</option>
       <option value="5">5組</option>
       <option value="6">6組</option>
+      <option value="7">7組</option>
+      <option value="8">8組</option>
     </Select>
   );
 };
