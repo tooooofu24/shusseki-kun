@@ -8,7 +8,7 @@ export const useIPAddresses = () => {
   const { data, mutate: refetch } = useSWR(["/ip-addresses"], fetcher, {
     suspense: true,
   });
-  const IPAddresses: IPAddress[] = data?.results;
+  const IPAddresses: IPAddress[] = data?.data;
   return { IPAddresses, refetch };
 };
 

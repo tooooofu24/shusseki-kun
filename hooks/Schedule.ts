@@ -10,7 +10,7 @@ export const useSchedules = () => {
   const { data, mutate: refetch } = useSWR(["/schedules"], fetcher, {
     suspense: true,
   });
-  const schedules: Schedule[] = data?.results;
+  const schedules: Schedule[] = data?.data;
   return { schedules, refetch };
 };
 

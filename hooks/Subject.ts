@@ -6,6 +6,6 @@ export const useSubjects = () => {
   const { data, mutate: refetch } = useSWR(["/subjects"], fetcher, {
     suspense: true,
   });
-  const subjects: Subject[] = data?.results;
+  const subjects: Subject[] = data?.data;
   return { subjects, refetch };
 };

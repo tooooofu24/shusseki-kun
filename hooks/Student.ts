@@ -12,7 +12,7 @@ export const useStudents = () => {
     }).finally(() => {
       setIsLoading(false);
     });
-    setStudents(response.results);
+    setStudents(response.data);
   };
   const getStudentsByCourseId = async (courseId: number | string) => {
     setIsLoading(true);
@@ -21,7 +21,7 @@ export const useStudents = () => {
     }).finally(() => {
       setIsLoading(false);
     });
-    setStudents(response.results);
+    setStudents(response.data);
   };
   return {
     students,

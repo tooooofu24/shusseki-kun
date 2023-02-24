@@ -19,7 +19,7 @@ export const login = async () => {
       }
       throw new Error("不明なエラーです");
     })
-    .then(async (results) => {
+    .then(async (data) => {
       await checkUser().catch(async (e: any) => {
         await logout();
         throw e;

@@ -9,7 +9,7 @@ export const useClassrooms = () => {
   const { data, mutate: refetch } = useSWR(["/classrooms"], fetcher, {
     suspense: true,
   });
-  const classrooms: Classroom[] = data?.results;
+  const classrooms: Classroom[] = data?.data;
   return {
     classrooms,
     refetch,
@@ -20,7 +20,7 @@ export const useClassroom = (id: number | string) => {
   const { data, mutate: refetch } = useSWR([`/classrooms/${id}`], fetcher, {
     suspense: true,
   });
-  const classroom: Classroom = data?.result;
+  const classroom: Classroom = data?.data;
   return {
     classroom,
     refetch,

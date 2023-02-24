@@ -8,7 +8,7 @@ export const useUsers = () => {
   const { data, mutate: refetch } = useSWR(["/users"], fetcher, {
     suspense: true,
   });
-  const users: User[] = data?.results;
+  const users: User[] = data?.data;
   return { users, refetch };
 };
 

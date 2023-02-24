@@ -12,7 +12,7 @@ export const useInvitations = () => {
       suspense: true,
     }
   );
-  const invitations: Invitation[] = data?.results;
+  const invitations: Invitation[] = data?.data;
   return { invitations, refetch };
 };
 
